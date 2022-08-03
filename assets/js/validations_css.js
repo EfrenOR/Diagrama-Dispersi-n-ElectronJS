@@ -372,6 +372,7 @@ export default function () {
             $errorSubmit.classList.remove('hidden')
             document.querySelector('[data-warn]').insertAdjacentElement('beforebegin', $errorSubmit)
         }else{
+            e.preventDefault()
             $errorSubmit.classList.add('hidden')
             signalToValidation = true;
         }

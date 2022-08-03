@@ -10,6 +10,20 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical{
+    width:0.7em;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffffff21;
+    border-radius: 20px;
+}
+
+
 a{
     position: absolute;
     left: 0;
@@ -24,6 +38,15 @@ a{
 
 body{
     overflow-x: hidden;
+    background-color: var(--main-bg-color);
+    font-family: 'Georama', sans-serif;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    min-height:10em;
 }
 
 img{
@@ -31,18 +54,10 @@ img{
 }
 
 .index-html{
-    background-color: var(--main-bg-color);
-    color: white;
-    font-family: 'Georama', sans-serif;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    min-height:10em;
 }
 
-.index-html h1, button{
+.index-html h1, .index-html button{
     display: none;
 }
 
@@ -60,14 +75,7 @@ img{
 }
 
 .calcular-html{
-    background-color: var(--main-bg-color);
-    color: white;
-    font-family: 'Georama', sans-serif;
-    display: flex;
     align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    min-height:10em;
 }
 
 button[type="submit"], button[type="button"]{
@@ -82,6 +90,8 @@ button[type="submit"], button[type="button"]{
     color: white;
     font-weight: bold;
     max-width: 100%;
+    margin-bottom: 1em;
+
 }
 
 button:hover{
@@ -106,13 +116,23 @@ button:hover{
     padding: 1em;
 }
 
+figure{
+    width: 12em;
+}
+
+.formula-y{
+    width: 8em;
+}
+
+
 .form-calcular{
     text-align: center;
-    width: 90%;
+    width: 80%;
 }
 
 .form-calcular button{
     display: inline-block;
+    margin-top:1em;
 }
 
 .form-calcular *{
@@ -121,7 +141,7 @@ button:hover{
 
 .form-calcular .input-x, .form-calcular .input-y{
     position: relative;
-    width: 90%;
+    width: 100%;
     height: auto;
     margin: 2em auto;
 }
@@ -160,7 +180,32 @@ button:hover{
     border-radius: 0.3em;
 }
 
-.form-calcular button{
-    margin-top:2em;
+.variable.is-active{
+    background-color: red;
 }
 
+
+.resultados{
+    width: 100%;
+}
+
+.article-1{
+    display: flex;
+    justify-content: space-around;
+}
+
+.article-2{
+    width: 100%;
+    text-align: center;
+}
+
+.graph{
+    width: 70%;
+    margin-bottom: 2em;
+}
+
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}

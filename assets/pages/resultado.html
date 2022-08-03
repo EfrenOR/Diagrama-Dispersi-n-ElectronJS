@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <div class="title">
+        <h1>Diagrama de Dispersión</h1>
+    </div>
+
+    <div class="resultados">
+        <article class="article-1">
+            <p id="res-a"><strong>a=</strong></p>
+            <p id="res-b"><strong>b=</strong></p>
+        </article>
+
+        <article class="article-2">
+            <p id="res-R"><strong>R=</strong></p>
+        </article>
+    </div>    
+
+    <div class="graph">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="buttons">
+        <button type="button"><a href="#">Regresar</a></button>
+        <button type="button"><a href="#">Tabla de Datos</a></button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      
+        const data = {
+            datasets: [{
+            type: "scatter",
+                label: 'Datos',
+                data: [{
+                x: -10,
+                y: 0
+                }, {
+                x: 0,
+                y: 10
+                }, {
+                x: 10,
+                y: 5
+                }, {
+                x: 0.5,
+                y: 5.5
+                }],
+                backgroundColor: '#2E68FF',
+                showLine: false
+            },
+            {
+                type: 'line',
+                label: 'Regresión Lineal',
+                data: [
+                {
+                    x: 1,
+                    y: 1.62
+                },
+                {
+                    x: 2,
+                    y: 1.8
+                },
+                {
+                    x:3,
+                    y:2.1
+                },
+                {
+                    x:4,
+                    y:2.3
+                },
+                {
+                    x:5,
+                    y:2.6
+                },
+                {
+                    x:6,
+                    y:2.8
+                },
+                {
+                    x:7,
+                    y:3.1
+                },
+                {
+                    x:8,
+                    y:3.3
+                },
+                {
+                    x:9,
+                    y:3.5
+                },
+                {
+                    x:10,
+                    y:3.8
+                }
+                ],
+                borderColor: '#2E68FF',
+                fill:false,            
+            }]
+        };
+
+      
+        const config = {
+            data: data,
+        };
+
+
+        const myChart = new Chart(document.getElementById('myChart'), config);
+    </script>
+
+</body>
+</html>
