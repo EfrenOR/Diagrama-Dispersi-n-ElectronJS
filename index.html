@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/normalize.css">
     <link rel="stylesheet" href="./assets/styles/index.css">
+    <link rel="stylesheet" href="./assets/styles/spinkit.css">
     <title>Document</title>
 </head>
 <body class="index-html">
@@ -15,4 +16,29 @@
     <button type="button"><a href="./assets/pages/calcular.html">Ingresar</a></button>
 
 </body>
+
+<div class="sk-grid">
+    <div class="sk-grid-cube"></div>
+    <div class="sk-grid-cube"></div>
+    <div class="sk-grid-cube"></div>
+    <div class="sk-grid-cube"></div>
+    <div class="sk-grid-cube"></div>
+    <div class="sk-grid-cube"></div>
+    <div class="sk-grid-cube"></div>
+    <div class="sk-grid-cube"></div>
+    <div class="sk-grid-cube"></div>
+  </div>
+
 </html>
+
+<script>
+    const $loader = document.querySelector('.sk-grid');
+
+    window.addEventListener('load', e=>{
+        setTimeout(()=>{
+            $loader.classList.add('is-not-active')
+            document.querySelector('h1').classList.add('is-active')
+            document.querySelector('button').classList.add('is-active')
+        }, 1500)
+    })
+</script>

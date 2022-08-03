@@ -6,11 +6,20 @@
     --sec-color : #2E68FF;
 }
 
+*{
+    box-sizing: border-box;
+}
 
 a{
+    position: absolute;
+    left: 0;
+    top: 0;
     text-decoration: none;
     color: white;
     font-weight: bold;
+    line-height: 2.3em;
+    width: 9em;
+    display: block;
 }
 
 body{
@@ -33,6 +42,23 @@ img{
     min-height:10em;
 }
 
+.index-html h1, button{
+    display: none;
+}
+
+.index-html h1.is-active, button.is-active{
+    display: inline-block;
+}
+
+.sk-grid{
+    min-width: 3em;
+    min-height: 3em;
+}
+
+.sk-grid.is-not-active{
+    display: none;
+}
+
 .calcular-html{
     background-color: var(--main-bg-color);
     color: white;
@@ -45,6 +71,7 @@ img{
 }
 
 button[type="button"]{
+    position: relative;
     outline: none;
     border: none;
     border-radius: 0.3em;
@@ -84,26 +111,28 @@ button[type="button"]:hover{
     width: 90%;
 }
 
+.form-calcular button{
+    display: inline-block;
+}
+
 .form-calcular *{
     width: 100%;
 }
 
 .form-calcular .input-x, .form-calcular .input-y{
     position: relative;
-    height: 2.3em;
-    border-radius: 0.5em;
-    overflow: hidden;
-    margin-top:2em;
+    width: 90%;
+    height: auto;
+    margin: 2em auto;
 }
 
 .form-calcular input[type="text"]{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: inherit;
+    border-radius: 0.5em;
+    height: 2.3em;
     border: none;
     outline: none;
     padding-left: 2.8em;
+    width: 100%;
 }
 
 .form-calcular svg{
@@ -126,7 +155,7 @@ button[type="button"]:hover{
     top: 0em;
     left: 0em;
     width: 2em;
-    height: inherit;
+    height: 2.3em;
     box-shadow: 0em 0em 0.4em rgba(0,0,0,1);
     border-radius: 0.3em;
 }
@@ -134,3 +163,4 @@ button[type="button"]:hover{
 .form-calcular button{
     margin-top:2em;
 }
+
