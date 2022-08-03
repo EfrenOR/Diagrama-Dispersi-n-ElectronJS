@@ -70,7 +70,7 @@ img{
     min-height:10em;
 }
 
-button[type="button"]{
+button[type="submit"], button[type="button"]{
     position: relative;
     outline: none;
     border: none;
@@ -84,7 +84,7 @@ button[type="button"]{
     max-width: 100%;
 }
 
-button[type="button"]:hover{
+button:hover{
     cursor: pointer;
     transform: scale(1.1);
 }

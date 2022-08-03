@@ -133,13 +133,13 @@ const typeValidations = [
         methodValidation: (targetInput, $warn, previousStatus, required, displaywarnings) => {
             if (previousStatus || previousStatus === null) {
                 let valueInput = targetInput.value
-                let regExp = (/^[0-9]+(.[0-9]+)+([0-9]+)*$/gim);
+                let regExp = (/^(\d+)(,\s*\d+)*$/gim);
                 if (!regExp.test(valueInput)) {//VALIDATION
                     if (valueInput === "" && !required) return true;
 
                     if (valueInput === "" && required) return false;
 
-                    if (displaywarnings || displaywarnings == undefined) displayWarn($warn, 'Enter numbers separated by commas', false, targetInput)
+                    if (displaywarnings || displaywarnings == undefined) displayWarn($warn, 'Enter only numbers separated by commas', false, targetInput)
                     return false;
 
                 } else if (regExp.test(valueInput) && !required) {
@@ -188,7 +188,6 @@ const createwarnings = ($inputs) => {
         input.insertAdjacentElement('afterend', $span)
     })
 }
-
 
 //METHOD TO MAKE CHANGES OF STYLES IN THE <INPUTS> ACCORDING THE VALIDATION RESULT
 const displayWarn = ($warn, message, status, input) => { //'status' indicate the current validation
@@ -292,7 +291,6 @@ const validar = (res, regExp, e, displaywarnings) => {
         console.error(`Error: ${e}`)
     }
 }
-
 
 //METHOD TO CHECK THAT THE INPUTS ARE VALIDATED, THIS IS FOR THE SUBMIT
 const validarSubmit = (res, regExp, e, inputs, displaywarnings) => {
