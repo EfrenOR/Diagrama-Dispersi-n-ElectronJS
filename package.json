@@ -1,11 +1,39 @@
 {
-  "name": "dispersion",
+  "name": "diagrama-de-dispersion",
   "version": "1.0.0",
   "description": "Programa para calcular el diagrama de dispersion",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "author": "Jair Efren Ortega Reyes",
-  "license": "ISC"
+  "license": "MIT",
+  "build": {
+    "appId": "Diagrama De Dispersion v1",
+    "asar": true,
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/scatter-plot.ico"
+    }
+  }
 }

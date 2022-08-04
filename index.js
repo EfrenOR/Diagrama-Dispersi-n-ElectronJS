@@ -1,12 +1,14 @@
-const {app, BrowserWindow} = require("electron");
-const url = require("url");
+const {BrowserWindow, app} = require('electron');
 
-function newApp(){
-    win = new BrowserWindow({width: 1000, height:650});
-    win.loadURL(url.format({
-        pathname:"index.html",
-        slashes: true
-    }));
+const createWindow = ()=>{
+  const win = new BrowserWindow({
+    width:1000,
+    height:650
+  })
+
+  win.loadFile('index.html')
 }
 
-app.on("ready", newApp)
+app.whenReady().then(()=>{
+  createWindow();
+});

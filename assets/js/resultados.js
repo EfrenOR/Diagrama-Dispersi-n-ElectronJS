@@ -55,7 +55,6 @@ let res = new Promise((resolve, reject) => {
         type: 'line',
         label: 'Regresión Lineal',
         data: regresionLineal,
-        backgroundColor: '#80a4ff',
         borderColor: '#80a4ff',
         fill:false
     }]

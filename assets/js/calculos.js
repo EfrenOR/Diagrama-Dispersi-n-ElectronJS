@@ -40,6 +40,8 @@ export default function calcular(){
 
     let a, b, r, n, regresionLineal = [];
 
+    const $errorSubmit = document.createElement('span');
+    $errorSubmit.classList.add('hidden')
 
     document.addEventListener('submit', e=>{
         e.preventDefault()
@@ -49,35 +51,43 @@ export default function calcular(){
                 $inputX.previousElementSibling.classList.add('is-active')
                 $inputY.previousElementSibling.classList.add('is-active')
             }else{
-
-                $inputX.previousElementSibling.classList.remove('is-active')
-                $inputY.previousElementSibling.classList.remove('is-active')
-
                 n = (($inputX.value).split(',').length)
-            
-                b = ((n)*(sumatoriaXY($inputX, $inputY)) - (sumatoria($inputX))*(sumatoria($inputY))) / ((n)*(sumatoriaX2Y2($inputX)) - Math.pow(sumatoria($inputX), 2))
-                a = ((sumatoria($inputY)) - (b)*(sumatoria($inputX))) / (n);
 
-                for (let index = 0; index < Math.max(...($inputX.value).split(',')); index++) {
-                    regresionLineal.push({x:parseFloat(index+1), y:a + b*(index+1)})                    
-                }
-
-                const data = {
-                    'x' : ($inputX.value).split(','),
-                    'y' : ($inputY.value).split(',')
-                }
-
-
-                let r = ((((n)*(sumatoriaXY($inputX, $inputY))) - ((sumatoria($inputX))*(sumatoria($inputY)))) / Math.sqrt(((((n)*sumatoriaX2Y2($inputX)) - (Math.pow(sumatoria($inputX), 2))))*((n*(sumatoriaX2Y2($inputY)))- (Math.pow(sumatoria($inputY), 2))), 2));
-
-                localStorage.setItem('a', Math.round(a*1000000.0)/1000000.0)
-                localStorage.setItem('b', Math.round(b*1000000.0)/1000000.0)
-                localStorage.setItem('r', Math.round(r*1000000.0)/1000000.0)
-                localStorage.setItem('data', JSON.stringify(data))
-                localStorage.setItem('regresionLineal', JSON.stringify(regresionLineal))
-
+                if((($inputX.value).split(',').length) === (($inputY.value).split(',').length)){
+                    $inputX.previousElementSibling.classList.remove('is-active')
+                    $inputY.previousElementSibling.classList.remove('is-active')
                 
-                location.href = '../pages/resultado.html'
+                    b = ((n)*(sumatoriaXY($inputX, $inputY)) - (sumatoria($inputX))*(sumatoria($inputY))) / ((n)*(sumatoriaX2Y2($inputX)) - Math.pow(sumatoria($inputX), 2))
+                    a = ((sumatoria($inputY)) - (b)*(sumatoria($inputX))) / (n);
+    
+                    for (let index = 0; index < Math.max(...($inputX.value).split(',')); index++) {
+                        regresionLineal.push({x:parseFloat(index+1), y:a + b*(index+1)})                    
+                    }
+    
+                    const data = {
+                        'x' : ($inputX.value).split(','),
+                        'y' : ($inputY.value).split(',')
+                    }
+    
+    
+                    let r = ((((n)*(sumatoriaXY($inputX, $inputY))) - ((sumatoria($inputX))*(sumatoria($inputY)))) / Math.sqrt(((((n)*sumatoriaX2Y2($inputX)) - (Math.pow(sumatoria($inputX), 2))))*((n*(sumatoriaX2Y2($inputY)))- (Math.pow(sumatoria($inputY), 2))), 2));
+    
+                    localStorage.setItem('a', Math.round(a*1000000.0)/1000000.0)
+                    localStorage.setItem('b', Math.round(b*1000000.0)/1000000.0)
+                    localStorage.setItem('r', Math.round(r*1000000.0)/1000000.0)
+                    localStorage.setItem('data', JSON.stringify(data))
+                    localStorage.setItem('regresionLineal', JSON.stringify(regresionLineal))
+    
+                    
+                    location.href = '../pages/resultado.html'
+                }else{
+                    $inputX.previousElementSibling.classList.add('is-active')
+                    $inputY.previousElementSibling.classLis    
+                    
+                    $errorSubmit.textContent = "Las variables X & Y deben tener la misma cantidad de valores";
+                    $errorSubmit.classList.remove('hidden')
+                    document.querySelector('[data-warn]').insertAdjacentElement('beforebegin', $errorSubmit)
+                }
 
             }
         }
