@@ -151,6 +151,33 @@ const typeValidations = [
 
             return true;
         }
+    },
+    {
+        name: 'numbers-decimal-commma',
+        inputs: [],
+        methodValidation: (targetInput, $warn, previousStatus, required, displaywarnings) => {
+            if (previousStatus || previousStatus === null) {
+                let valueInput = targetInput.value
+                let valueInput2 = valueInput.split(',').join('')
+                valueInput2 = valueInput2.split('.').join('')
+                let regExp = (/^[0-9]+$/gim);//true
+                if (!regExp.test(valueInput2)) {//VALIDATION
+                    if (valueInput === "" && !required) return true;
+
+                    if (valueInput === "" && required) return false;
+
+                    if (displaywarnings || displaywarnings == undefined) displayWarn($warn, 'Enter only numbers separated by commas', false, targetInput)
+                    return false;
+
+                } else if (regExp.test(valueInput) && !required) {
+                    return true;
+                }
+            } else {
+                return false
+            }
+
+            return true;
+        }
     }
 ]
 

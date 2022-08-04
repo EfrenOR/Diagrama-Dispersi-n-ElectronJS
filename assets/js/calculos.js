@@ -49,6 +49,7 @@ export default function calcular(){
                 $inputX.previousElementSibling.classList.add('is-active')
                 $inputY.previousElementSibling.classList.add('is-active')
             }else{
+
                 $inputX.previousElementSibling.classList.remove('is-active')
                 $inputY.previousElementSibling.classList.remove('is-active')
 
@@ -77,7 +78,6 @@ export default function calcular(){
 
                 
                 location.href = '../pages/resultado.html'
-
 
             }
         }

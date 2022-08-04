@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/normalize.css">
     <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/spinkit.css">
     <title>Document</title>
 </head>
 
-<body>
+<body class="is-active">
     
-    <div class="title">
+    <div class="title title-resultado">
         <h1>Diagrama de Dispersión</h1>
     </div>
 
@@ -24,100 +25,64 @@
         <article class="article-2">
             <p><strong id="res-R">R = </strong></p>
         </article>
-    </div>    
+    </div>        
 
-    <div class="graph">
-        <canvas id="myChart"></canvas>
+    <div class="container">
+
+        <div class="table-1">
+            <table id="table-1" border="1">
+                <tr>
+                    <th colspan="2">Datos</th>
+                </tr>
+                <tr>
+                    <th>X</th>
+                    <th>Y</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="graph">
+            <canvas id="myChart"></canvas>
+            <div class="buttons">
+                <button id="btn" type="button"><a href="../pages/calcular.html">Regresar</a></button>
+            </div>
+        </div>
+
+        <div class="table-2">
+            <table id="table-2" border="1">
+                <tr>
+                    <th colspan="2">Regresión Lineal</th>
+                </tr>
+                <tr>
+                    <th>X</th>
+                    <th>Y</th>
+                </tr>
+
+            </table>
+        </div>
+
     </div>
 
-    <div class="buttons">
-        <button type="button"><a href="../pages/calcular.html">Regresar</a></button>
-        <button type="button"><a href="#">Tabla de Datos</a></button>
+    <div class="sk-grid">
+        <div class="sk-grid-cube"></div>
+        <div class="sk-grid-cube"></div>
+        <div class="sk-grid-cube"></div>
+        <div class="sk-grid-cube"></div>
+        <div class="sk-grid-cube"></div>
+        <div class="sk-grid-cube"></div>
+        <div class="sk-grid-cube"></div>
+        <div class="sk-grid-cube"></div>
+        <div class="sk-grid-cube"></div>
     </div>
+
+    <template id="row">
+        <tr>
+            <td id="value-x"></td>
+            <td id="value-y"></td>
+        </tr>
+    </template>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!--<script>
-      
-        const data = {
-            datasets: [{
-            type: "scatter",
-                label: 'Datos',
-                data: [{
-                x: -10,
-                y: 0
-                }, {
-                x: 0,
-                y: 10
-                }, {
-                x: 10,
-                y: 5
-                }, {
-                x: 0.5,
-                y: 5.5
-                }],
-                backgroundColor: '#2E68FF',
-                showLine: false
-            },
-            {
-                type: 'line',
-                label: 'Regresión Lineal',
-                data: [
-                {
-                    x: 1,
-                    y: 1.62
-                },
-                {
-                    x: 2,
-                    y: 1.8
-                },
-                {
-                    x:3,
-                    y:2.1
-                },
-                {
-                    x:4,
-                    y:2.3
-                },
-                {
-                    x:5,
-                    y:2.6
-                },
-                {
-                    x:6,
-                    y:2.8
-                },
-                {
-                    x:7,
-                    y:3.1
-                },
-                {
-                    x:8,
-                    y:3.3
-                },
-                {
-                    x:9,
-                    y:3.5
-                },
-                {
-                    x:10,
-                    y:3.8
-                }
-                ],
-                borderColor: '#2E68FF',
-                fill:false,            
-            }]
-        };
-
-      
-        const config = {
-            data: data,
-        };
-
-
-        const myChart = new Chart(document.getElementById('myChart'), config);
-    </script>-->
-
     <script src="../js/resultados.js"></script>
 
 </body>
